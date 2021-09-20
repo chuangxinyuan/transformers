@@ -16,11 +16,11 @@ if MASK_RCNN_DIR:
 
 from mrcnn import model as modellib
 from mrcnn.config import Config
-
+import keras.backend.tensorflow_backend as ktf
 
 class ModelLoader:
     def __init__(self, labels, model_path):
-        self.labels = labels
+        self.labels = {item['id']: item['name'] for item in labels}
         self.model_path = model_path
 
         class InferenceConfig(Config):
@@ -29,7 +29,6 @@ class ModelLoader:
             GPU_COUNT = 1
             IMAGES_PER_GPU = 1
 
-        import keras.backend.tensorflow_backend as ktf
         def get_session(gpu_fraction=1.000):
             gpu_options = tf.GPUOptions(
             per_process_gpu_memory_fraction=gpu_fraction,

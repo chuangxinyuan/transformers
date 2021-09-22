@@ -43,7 +43,6 @@ class ModelLoader:
         self.model = modellib.MaskRCNN(mode="inference",
             config=self.config, model_dir=MASK_RCNN_DIR)
         self.model.load_weights(self.model_path, by_name=True)
-        self.labels = labels
 
     def infer(self, image, threshold):
         output = self.model.detect([image], verbose=1)[0]

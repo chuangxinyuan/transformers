@@ -17,7 +17,7 @@ setup(
     python_requires='>3.6',
     packages=find_packages("kerasserver"),
     install_requires=[
-        "kfserving>=0.6.0",
+        "kfserving==0.6.0",
         "tensorflow==1.13.1",
         'numpy',
         'cython',

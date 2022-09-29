@@ -24,7 +24,7 @@ spec:
           requests:
             cpu: 2
             memory: 8Gi      
-        image: cxyacr.azurecr.cn/onepanel/transformer-keras:v1
+        image: cxyacr.azurecr.cn/docker.io/onepanel/transformer-keras:v1
         env:
           - name: MASK_RCNN_DIR
             value: /app/Mask_RCNN
